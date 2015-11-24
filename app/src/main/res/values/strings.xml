@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TwentyFour</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="less_than">&lt;</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_arcade">ArcadeActivity</string>
+    <string name="title_activity_relax">RelaxActivity</string>
+    <string name="title_activity_twelve">TwelveActivity</string>
+    <string name="title_activity_scores">ScoresActivity</string>
+    <string name="title_activity_random">RandomActivity</string>
+
+</resources>
