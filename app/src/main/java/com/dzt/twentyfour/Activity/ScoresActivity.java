@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.dzt.twentyfour.Class.Score;
-import com.dzt.twentyfour.Class.ScoreboardListAdapter;
+import com.dzt.twentyfour.Adapter.ScoreboardListAdapter;
 import com.dzt.twentyfour.R;
 
 import java.util.ArrayList;
@@ -80,13 +80,16 @@ public class ScoresActivity extends Activity implements View.OnClickListener{
         int scoreSurvival = sp.getInt("survival", 0);
         int scoreArcade = sp.getInt("arcade", 0);
         int scoreRandom = sp.getInt("random",0);
+        int scoreNormal = sp.getInt("normal",0);
         Score survival = new Score("survival",scoreSurvival);
         Score arcade = new Score("arcade",scoreArcade);
         Score random = new Score("random",scoreRandom);
+        Score normal = new Score("normal",scoreNormal);
 
         this.scores.add(survival);
         this.scores.add(arcade);
         this.scores.add(random);
+        this.scores.add(normal);
     }
 
     private void showMessage(String msg) {
@@ -112,13 +115,16 @@ public class ScoresActivity extends Activity implements View.OnClickListener{
         Intent intent;
         switch (mode) {
             case "survival":
-                intent = new Intent(this, MainActivity.class);
+                intent = new Intent(this, SurvivalActivity.class);
                 break;
             case "arcade":
                 intent = new Intent(this, ArcadeActivity.class);
                 break;
             case "random":
                 intent = new Intent(this, RandomActivity.class);
+                break;
+            case "normal":
+                intent = new Intent(this, NormalActivity.class);
                 break;
             default:
                 intent = new Intent(this, MenuActivity.class);

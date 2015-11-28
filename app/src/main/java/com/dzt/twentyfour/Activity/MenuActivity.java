@@ -14,6 +14,7 @@ public class MenuActivity extends Activity implements View.OnClickListener{
     private Button buttonArcade;
     private Button buttonRelax;
     private Button buttonRandom;
+    private Button buttonNormal;
     private Button buttonScoreboard;
 
     @Override
@@ -40,6 +41,9 @@ public class MenuActivity extends Activity implements View.OnClickListener{
 
         buttonRandom = (Button) findViewById(R.id.menu_button_random);
         buttonRandom.setOnClickListener(this);
+
+        buttonNormal = (Button) findViewById(R.id.menu_button_normal);
+        buttonNormal.setOnClickListener(this);
     }
 
     @Override
@@ -60,29 +64,32 @@ public class MenuActivity extends Activity implements View.OnClickListener{
             case R.id.menu_button_random:
                 openRandomActivity();
                 break;
+            case R.id.menu_button_normal:
+                openNormalActivity();
+                break;
             default:
                 break;
         }
     }
 
     private void openSurvivalActivity(){
-        startActivity(new Intent(this, MainActivity.class));
-        //finish();
+        startActivity(new Intent(this, SurvivalActivity.class));
     }
 
     private void openArcadeActivity() {
         startActivity(new Intent(this, ArcadeActivity.class));
-        //finish();
     }
 
     private void openRandomActivity() {
         startActivity(new Intent(this, RandomActivity.class));
-        //finish();
     }
 
     private void openRelaxActivity() {
         startActivity(new Intent(this, RelaxActivity.class));
-        //finish();
+    }
+
+    private void openNormalActivity() {
+        startActivity(new Intent(this, NormalActivity.class));
     }
 
     private void openScoreboardActivity() {
@@ -93,7 +100,5 @@ public class MenuActivity extends Activity implements View.OnClickListener{
         Intent intent  = new Intent(this, ScoresActivity.class);
         intent.putExtras(params);
         startActivity(intent);
-
-        //finish();
     }
 }

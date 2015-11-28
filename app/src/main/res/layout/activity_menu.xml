@@ -10,6 +10,12 @@
     <Button
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:id="@+id/menu_button_normal"
+        android:text="NORMAL"/>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
         android:id="@+id/menu_button_survival"
         android:text="SURVIVAL"/>
 
