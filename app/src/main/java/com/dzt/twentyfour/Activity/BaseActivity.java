@@ -65,7 +65,7 @@ public class BaseActivity extends Activity implements View.OnClickListener, View
     @Override
     protected void onStop() {
         super.onStop();
-        endGameExit();
+        //endGameExit();
     }
 
     @Override

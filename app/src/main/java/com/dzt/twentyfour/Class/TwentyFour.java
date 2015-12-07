@@ -50,7 +50,7 @@ public class TwentyFour {
     }
 
     private static boolean evaluate(String numbers){
-        double result;
+        double result, result2;
         double [] numbersArray = new double[4];
         for (int i = 0; i< numbers.length(); i++){
             switch(numbers.charAt(i)) {
@@ -76,15 +76,73 @@ public class TwentyFour {
                     result = evaluate(a, b, c, numbersArray);
                     if(result == expectedResult)
                         return true;
+                    else{
+                        result2 = evaluate2(a,b,c, numbersArray);
+                        if (result2 == expectedResult) {
+                            return true;
+                        }
+                    }
                 }
             }
         }
         return false;
     }
 
+    private static double evaluate2(int a, int b, int c, double [] numbers) {
+        double result = 0, r1 = 0, r2 = 0;
+
+        switch(a){
+            case 0:
+                r1 = numbers[0] + numbers[1];
+                break;
+            case 1:
+                r1 = numbers[0] - numbers[1];
+                break;
+            case 2:
+                r1 = numbers[0] * numbers[1];
+                break;
+            case 3:
+                r1 = numbers[0] / numbers[1];
+                break;
+        }
+
+        switch(b){
+            case 0:
+                r2 = numbers[2] + numbers[3];
+                break;
+            case 1:
+                r2 = numbers[2] - numbers[3];
+                break;
+            case 2:
+                r2 = numbers[2] * numbers[3];
+                break;
+            case 3:
+                r2 = numbers[2] / numbers[3];
+                break;
+        }
+
+        switch(c){
+            case 0:
+                result = r1 + r2;
+                break;
+            case 1:
+                result = r1 - r2;
+                break;
+            case 2:
+                result = r1 * r2;
+                break;
+            case 3:
+                if (r2 != 0) {
+                    result = r1 / r2;
+                }
+                break;
+        }
+        return result;
+    }
+
     private static double evaluate(int a, int b, int c, double [] numbers)
     {
-        double result = numbers[0];
+        double result = 0;
         switch(a){
             case 0:
                 result += numbers[1];
@@ -130,6 +188,8 @@ public class TwentyFour {
                 break;
         }
         return result;
+
+
     }
 
     public static String evaluateOperation(String operation, Stack<String> operationStack) {

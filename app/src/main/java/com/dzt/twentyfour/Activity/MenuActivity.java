@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.dzt.twentyfour.Class.TwentyFour;
 import com.dzt.twentyfour.R;
 
 public class MenuActivity extends Activity implements View.OnClickListener{
@@ -93,6 +95,10 @@ public class MenuActivity extends Activity implements View.OnClickListener{
     }
 
     private void openScoreboardActivity() {
+        int [] numbers = {1,5,5,9};
+        boolean possible = TwentyFour.isPossible(numbers, 24.0);
+        Toast.makeText(this, "1,5,5,9 " + possible, Toast.LENGTH_SHORT).show();
+        /*
         Bundle params = new Bundle();
         params.putString("mode", "none");
         params.putInt("score", 0);
@@ -100,5 +106,6 @@ public class MenuActivity extends Activity implements View.OnClickListener{
         Intent intent  = new Intent(this, ScoresActivity.class);
         intent.putExtras(params);
         startActivity(intent);
+        */
     }
 }
