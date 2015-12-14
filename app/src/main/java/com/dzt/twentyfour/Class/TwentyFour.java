@@ -1,13 +1,16 @@
 package com.dzt.twentyfour.Class;
 
 
+import android.util.Log;
+
 import java.util.EmptyStackException;
 import java.util.Stack;
 
 public class TwentyFour {
-    //final char [] operators = {'+', '-', '*', '/'};
     static double expectedResult;
+
     public static boolean isPossible(int [] numbers, double results) {
+
         expectedResult = results;
 
         String permute = "";
@@ -74,9 +77,9 @@ public class TwentyFour {
             for(int b = 0; b < 4; b++){
                 for(int c = 0; c < 4; c++){
                     result = evaluate(a, b, c, numbersArray);
-                    if(result == expectedResult)
+                    if(result == expectedResult) {
                         return true;
-                    else{
+                    } else {
                         result2 = evaluate2(a,b,c, numbersArray);
                         if (result2 == expectedResult) {
                             return true;
@@ -87,6 +90,47 @@ public class TwentyFour {
         }
         return false;
     }
+
+    /*
+
+                            Log.i("result", result + "");
+                        String operation = "";
+                        operation += numbersArray[0];
+                        switch (a) {
+                            case 0: operation += "+";
+                                break;
+                            case 1: operation += "-";
+                                break;
+                            case 2: operation += "*";
+                                break;
+                            case 3: operation += "/";
+                                break;
+                        }
+                        operation += numbersArray[1];
+                        switch (b) {
+                            case 0: operation += "+";
+                                break;
+                            case 1: operation += "-";
+                                break;
+                            case 2: operation += "*";
+                                break;
+                            case 3: operation += "/";
+                                break;
+                        }
+                        operation += numbersArray[2];
+                        switch (c) {
+                            case 0: operation += "+";
+                                break;
+                            case 1: operation += "-";
+                                break;
+                            case 2: operation += "*";
+                                break;
+                            case 3: operation += "/";
+                                break;
+                        }
+                        operation += numbersArray[3];
+                        Log.i("evaluate", operation);
+     */
 
     private static double evaluate2(int a, int b, int c, double [] numbers) {
         double result = 0, r1 = 0, r2 = 0;
@@ -142,7 +186,7 @@ public class TwentyFour {
 
     private static double evaluate(int a, int b, int c, double [] numbers)
     {
-        double result = 0;
+        double result = numbers[0];
         switch(a){
             case 0:
                 result += numbers[1];
